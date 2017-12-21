@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var ammoProgressView: UIProgressView!
 	let rocketLauncher = Weapon.init()
 	
 	override func viewDidLoad() {
@@ -33,14 +34,24 @@ class ViewController: UIViewController {
 	}
 	
 	@IBAction func shoot() {
-		rocketLauncher.shoot()
+		let myWeapon = rocketLauncher
+		myWeapon.shoot()
+//		rocketLauncher.name
+		updateProgressView()
+//		print(rocketLauncher.shootCount)
 	}
 	
 	@IBAction func reload() {
 		rocketLauncher.reload()
+		updateProgressView()
 	}
 	
 	@IBAction func autoreloadSwitchChanged(_ sender: UISwitch) {
+		rocketLauncher.autoReload = sender.isOn
+	}
+	
+	func updateProgressView() {
+		ammoProgressView.progress = Float(rocketLauncher.ammoCount) / 10
 	}
 	
 }

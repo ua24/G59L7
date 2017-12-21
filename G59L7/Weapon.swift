@@ -27,7 +27,8 @@ class Weapon: NSObject {
 		result += "damage \t= \(damage)\n"
 		result += "madeOf \t= \(madeOf ?? .none)\n"
 		result += "name \t= \(name)"
-		return result
+//		return result
+		return super.description
 	}
 
 	var damage: Int = 0 {
@@ -41,12 +42,15 @@ class Weapon: NSObject {
 	var madeOf: Material?
 	var ammoCount = 10
 	var autoReload = false
+	
+	private var shootCount = 0
 //	var material: Material = Material.plastic
 //	var material = Material.plastic
 	
 	func shoot() {
 		if ammoCount > 0 {
 			ammoCount -= 1
+			shootCount += 1
 			print("PEW-PEW")
 		}
 		else {
