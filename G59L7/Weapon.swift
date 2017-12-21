@@ -39,6 +39,17 @@ class Weapon: NSObject {
 	}
 	var name = ""
 	var madeOf: Material?
+	var ammoCount = 10
 //	var material: Material = Material.plastic
 //	var material = Material.plastic
+	
+	func shoot() {
+		if ammoCount > 0 {
+			ammoCount -= 1
+			print("PEW-PEW")
+		}
+		else {
+			print("CHIK-CHIk")
+		}
+	}
 }
