@@ -40,6 +40,7 @@ class Weapon: NSObject {
 	var name = ""
 	var madeOf: Material?
 	var ammoCount = 10
+	var autoReload = false
 //	var material: Material = Material.plastic
 //	var material = Material.plastic
 	
@@ -49,7 +50,16 @@ class Weapon: NSObject {
 			print("PEW-PEW")
 		}
 		else {
-			print("CHIK-CHIk")
+			print("CHIk")
+			if autoReload {
+				reload()
+			}
 		}
 	}
+
+	func reload() {
+		print("CHIK-CHIk")
+		ammoCount = 10
+	}
+
 }

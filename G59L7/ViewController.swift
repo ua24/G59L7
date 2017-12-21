@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	let rocketLauncher = Weapon.init()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
@@ -18,7 +20,7 @@ class ViewController: UIViewController {
 		revolver.name = "Colt Petrovich"
 		revolver.damage = 25
 		
-		let rocketLauncher = Weapon.init()
+		
 		rocketLauncher.damage = 100500
 		rocketLauncher.name = "BFG"
 		rocketLauncher.madeOf = .titan
@@ -28,6 +30,17 @@ class ViewController: UIViewController {
 		
 		print(rocketLauncher)
 		
+	}
+	
+	@IBAction func shoot() {
+		rocketLauncher.shoot()
+	}
+	
+	@IBAction func reload() {
+		rocketLauncher.reload()
+	}
+	
+	@IBAction func autoreloadSwitchChanged(_ sender: UISwitch) {
 	}
 	
 }
